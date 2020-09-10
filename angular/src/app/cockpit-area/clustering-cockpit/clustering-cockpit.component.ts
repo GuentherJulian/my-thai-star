@@ -65,7 +65,7 @@ export class ClusteringCockpitComponent implements OnInit, AfterViewInit {
 
     this.getMenu({
       sort: {
-        name: undefined,
+        property: 'price',
         direction: SortDirection.DESC,
       },
       categories: {
@@ -118,7 +118,9 @@ export class ClusteringCockpitComponent implements OnInit, AfterViewInit {
   restClusters() {
     this.clustersfeatureLayer = null;
     this.clustersResultsDataSource = null;
-    this.map.removeLayer(this.jsonLayer);
+    if (this.jsonLayer != null) {
+      this.map.removeLayer(this.jsonLayer);
+    }
   }
 
   updateMap(event: any) {

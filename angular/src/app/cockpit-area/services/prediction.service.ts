@@ -122,9 +122,9 @@ export class PredictionService {
               metadata.sort((x, y) => x.date - y.date);
 
               metadata.forEach((value, index) => {
-                orders.dates[index] = data.date;
-                orders.weather[index] = data.weather;
-                orders.holidays[index] = data.holiday;
+                orders.dates[index] = value.date;
+                orders.weather[index] = value.weather;
+                orders.holidays[index] = value.holiday;
               });
 
               return orders;

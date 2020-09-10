@@ -314,17 +314,17 @@ export class PredictionCockpitComponent implements OnInit {
     return date.toLocaleDateString('en-GB', { weekday: 'short' }) + ' ' + date.toLocaleDateString('en-GB');
   }
 
-  monthlyCalendarYearHandler( calendarDate: Moment, filterType: String ) {
+  monthlyCalendarYearHandler( calendarDate: Date, filterType: String ) {
     if (filterType === 'start') {
       const dateValue = this.currentStartDate.value;
-      dateValue.setFullYear(calendarDate.year());
+      dateValue.setFullYear(calendarDate.getFullYear());
       dateValue.setDate(1);
       this.currentStartDate.setValue(dateValue);
       this.monthlyFilter.startBookingdate = new Date(this.currentStartDate.value.getFullYear(),
         this.currentStartDate.value.getMonth(), 1).toISOString();
     } else if (filterType === 'end') {
       const dateValue = this.currentEndDate.value;
-      dateValue.setFullYear(calendarDate.year());
+      dateValue.setFullYear(calendarDate.getFullYear());
       dateValue.setDate(1);
       this.currentEndDate.setValue(dateValue);
       this.monthlyFilter.endBookingdate = new Date(this.currentEndDate.value.getFullYear(),
@@ -332,20 +332,20 @@ export class PredictionCockpitComponent implements OnInit {
     }
   }
 
-  monthlyCalendarMonthHandler( calendarDate: Moment, filterType: String, datepicker: OwlDateTimeComponent<Moment> ) {
+  monthlyCalendarMonthHandler( calendarDate: Date, filterType: String, datepicker: OwlDateTimeComponent<Moment> ) {
 
     if (filterType === 'start') {
       const dateValue = this.currentStartDate.value;
-      dateValue.setFullYear(calendarDate.year());
-      dateValue.setMonth(calendarDate.month());
+      dateValue.setFullYear(calendarDate.getFullYear());
+      dateValue.setMonth(calendarDate.getMonth());
       dateValue.setDate(1);
       this.currentStartDate.setValue(dateValue);
       this.monthlyFilter.startBookingdate = new Date(this.currentStartDate.value.getFullYear(),
         this.currentStartDate.value.getMonth(), 1).toISOString();
     } else if (filterType === 'end') {
       const dateValue = this.currentEndDate.value;
-      dateValue.setFullYear(calendarDate.year());
-      dateValue.setMonth(calendarDate.month());
+      dateValue.setFullYear(calendarDate.getFullYear());
+      dateValue.setMonth(calendarDate.getMonth());
       dateValue.setDate(1);
       this.currentEndDate.setValue(dateValue);
       this.monthlyFilter.endBookingdate = new Date(this.currentEndDate.value.getFullYear(),

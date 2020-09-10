@@ -53,6 +53,6 @@ export const config: Config = {
     { label: 'Русский', value: 'ru' },
     { label: 'български', value: 'bg' },
   ],
-  enablePrediction: false,
-  enableClustering: false,
+  enablePrediction: true,
+  enableClustering: true,
 };
